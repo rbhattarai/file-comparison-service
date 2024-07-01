@@ -44,6 +44,7 @@ public class ExcelComparisonController {
             expectedFile.transferTo(expectedTempFile);
 
             List<Map<String, Object>> result = excelComparisonService.compareFiles(actualTempFile, expectedTempFile);
+            log.info("File Compared Successfully - Actual: {} vs Expected: {}", actualFile.getName(), expectedFile.getName());
             return ResponseEntity.ok(result);
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

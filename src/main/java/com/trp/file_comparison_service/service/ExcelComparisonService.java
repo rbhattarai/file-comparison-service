@@ -22,13 +22,13 @@ public class ExcelComparisonService {
             Sheet actualSheet = actualWorkbook.getSheetAt(i);
             Sheet expectedSheet = expectedWorkbook.getSheetAt(i);
 
-            Map<String, Object> sheetResult = new HashMap<>();
+            Map<String, Object> sheetResult = new LinkedHashMap<>();
             sheetResult.put("Sheet Name", actualSheet.getSheetName());
 
             if (expectedSheet == null) {
                 sheetResult.put("error", "FAIL - Expected sheet missing");
             } else {
-                Map<String, String> comparisonResults = new HashMap<>();
+                Map<String, String> comparisonResults = new LinkedHashMap<>();
                 compareSheets(actualSheet, expectedSheet, comparisonResults);
                 sheetResult.putAll(comparisonResults);
             }
@@ -50,13 +50,13 @@ public class ExcelComparisonService {
             Sheet actualSheet = actualWorkbook.getSheetAt(i);
             Sheet expectedSheet = expectedWorkbook.getSheetAt(i);
 
-            Map<String, Object> sheetResult = new HashMap<>();
+            Map<String, Object> sheetResult = new LinkedHashMap<>();
             sheetResult.put("Sheet Name", actualSheet.getSheetName());
 
             if (expectedSheet == null) {
                 sheetResult.put("error", "FAIL - Expected sheet missing");
             } else {
-                Map<String, String> comparisonResults = new HashMap<>();
+                Map<String, String> comparisonResults = new LinkedHashMap<>();
                 compareSheets(actualSheet, expectedSheet, comparisonResults);
                 sheetResult.putAll(comparisonResults);
             }
